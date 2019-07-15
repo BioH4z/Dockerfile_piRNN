@@ -1,2 +1,2 @@
 # Dockerfile_piRNN
-Dockerfile for pirnn_c0ntainer
+Dockerfile for biohaz/pirnn_container:V1
