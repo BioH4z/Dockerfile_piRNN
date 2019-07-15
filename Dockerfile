@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM biohaz/basic_ubuntu:V1
 
 #MAINTAINER BioH4z <https://github.com/BioH4z>
 
@@ -15,27 +15,21 @@ USER root
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
 # install libraries
-RUN apt-get update -y \
-	&& apt-get install -y build-essential cmake pkg-config nano \
-	libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev \
+RUN apt-get install -y libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev \
 	libjpeg-dev libpng-dev libtiff-dev \
-	git \
-	pigz \
 	libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
 	libxvidcore-dev libx264-dev \
 	libgtk-3-dev \
 	libopenblas-dev libatlas-base-dev liblapack-dev gfortran \
 	libhdf5-serial-dev \
-	python3-dev python3-tk python-imaging-tk \
 	python3-pandas \
 	python-numpy python-scipy python-matplotlib python-sympy python-nose \
-	python3-pip \
-        && pip3 install tensorflow
+        && pip3 install tensorflow multiqc
 	
 
 RUN git clone https://github.com/wangk4/piRNN.git \
 	&& git clone https://github.com/keras-team/keras.git \
 	&& cd piRNN \
 	&& pigz -d *.zip \
-	&& cd /home/keras
+	&& cd /home/keras \
 	&& python3 setup.py install
