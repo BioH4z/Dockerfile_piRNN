@@ -23,7 +23,6 @@ RUN apt-get install -y libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev \
 	libopenblas-dev libatlas-base-dev liblapack-dev gfortran \
 	libhdf5-serial-dev \
 	python3-pandas \
-	python-numpy python-scipy python-matplotlib python-sympy python-nose \
         && pip3 install tensorflow multiqc
 	
 
