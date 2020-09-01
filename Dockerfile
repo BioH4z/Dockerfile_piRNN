@@ -33,3 +33,5 @@ RUN git clone https://github.com/wangk4/piRNN.git \
 	&& pigz -d *.zip \
 	&& cd /home/keras \
 	&& python3 setup.py install
+
+#END
